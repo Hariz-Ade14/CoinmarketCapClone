@@ -4,7 +4,6 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { FaGasPump } from "react-icons/fa";
 import { PrimaryButton } from "../../Components/Button/Button";
 import { Body } from "../../Components/Body/Body";
-import { Pagination } from "../../Components/Pagination/Pagination";
 import Footer from "../../Components/Footer/Footer";
 
 type headerProps = {
@@ -41,7 +40,7 @@ const headerProperties: headerProps[] = [
     values: "BTC: 56.8% ETH: 50%",
   },
   {
-    gasIcon: <FaGasPump />,
+    gasIcon: <FaGasPump className="me-1"/>,
     text: "ETh gas",
     values: "4.9 Gwei",
     icon: <MdKeyboardArrowDown />,
@@ -52,36 +51,49 @@ const headerProperties: headerProps[] = [
   },
 ];
 
-const Header = ({className}: any) => {
+const Header = ({ className }: {className: string}) => {
   return (
     <>
-     <div className={className}>
-      <div className="flex items-center gap-4 px-8 py-6">
-        {headerProperties.map(({ text, values, icon, percent ,gasIcon}) => {
-          return (
-            <div className="flex items-center font-semibold text-[1.125rem] text-gray-500">
-                <p className="me-2">{gasIcon}</p>
-              <p>{text}</p>:<p className="ms-2 text-primary">{values}</p>
-              <div
-                className={`flex ${
-                  percent ? "text-red" : "text-primary"
-                } items-center`}
-              >
-        
-                <p className="mx-[2px]">{icon}</p>
-                <p>{percent}</p>
-              </div>
-            </div>
-          );
-        })}
+      <div className={className}>
+        <div className="flex px-4 items-center py-2 w-full justify-between">
+          <div className="hidden lg:flex items-center gap-4">
+            {headerProperties.map(
+              ({ text, values, icon, percent, gasIcon }) => {
+                return (
+                  <div className="flex items-center font-semibold text-[10px] text-gray-500">
+                    {gasIcon}
+                    <p className="flex gap-1">
+                      <span>{text}</span>:<span className="text-primary">{values}</span>
+                    </p>
+                    <div
+                      className={`flex ${
+                        percent ? "text-red" : "text-primary"
+                      } items-center`}
+                    >
+                      <p className="mx-[2px]">{icon}</p>
+                      <p>{percent}</p>
+                    </div>
+                  </div>
+                );
+              }
+            )}
+          </div>
+          <div className="hidden w- lg:flex items-center gap-5">
+            <PrimaryButton
+              type="button"
+              icon={<MdKeyboardArrowDown className="text-gray-400" size={20} />}
+              text="Get listed"
+              customStyles="!text-black px-2 gap-1 !bg-gray-200 !flex !items-center"
+            />
+            <PrimaryButton
+              type="button"
+              text="API"
+              customStyles="!text-black px-3 !bg-gray-200 !flex !items-center"
+            />
+          </div>{" "}
+        </div>
       </div>
-      <div className="flex gap-5 me-8">
-        <PrimaryButton type="button" icon={<MdKeyboardArrowDown className="text-gray-400" size={30}/>} text="Get listed" customStyles="!text-black px-4 !bg-gray-200 !flex !items-center"/>
-        <PrimaryButton type="button" text="API" customStyles="!text-black px-4 !bg-gray-200 !flex !items-center"/>
-           
-      </div>
-      </div>
-      <hr />
+      <hr className="hidden lg:block"/>
     </>
   );
 };
@@ -90,10 +102,9 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <Header className="flex bg-green-300 mt-[140px] items-center justify-between"/>
-      <Body/>
-      <Pagination totalPages={10}/>
-      <Footer/>
+      <Header className="flex mt-[50px] lg:mt-[80px] items-center justify-between" />
+      <Body />
+      <Footer />
     </>
   );
 };

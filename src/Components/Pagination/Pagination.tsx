@@ -1,51 +1,79 @@
-import { useState } from "react";
+import previous from "../../../public/assets/previous.png";
+import next from "../../../public/assets/next.png";
 
-import { PrimaryButton } from "../Button/Button";
 
 interface PaginationProps {
+  currentPage: number;
   totalPages: number;
+  style?: string;
+  onPageChange: (page: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ totalPages }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const Pagination = ({
+  currentPage,
+  totalPages,
+  style,
+  onPageChange,
+}: PaginationProps) => {
+  const handlePrevious = () => {
+    if (currentPage > 1) {
+      onPageChange(currentPage - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) {
+      onPageChange(currentPage + 1);
+    }
+  };
 
   const handlePageClick = (page: number) => {
-    setCurrentPage(page);
+    onPageChange(page);
+  };
+
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(
+        <button
+          key={i}
+          onClick={() => handlePageClick(i)}
+          className={`px-[10px] rounded-[8px] py-1 text-[13px] border ${
+            currentPage === i
+              ? "bg-[#4640DE] text-white"
+              : "bg-[#E8EDF4] text-[#0A3059]"
+          }`}
+        >
+          {i}
+        </button>
+      );
+    }
+    return pageNumbers;
   };
 
   return (
-    <div className="bg-transparent my-10 md:bg-[#FFFFFF] w-full md:w-fit flex items-center justify-center gap-4 sm:gap-6 mt-10 mx-auto py-3 px-0 md:px-6 rounded-xl shadow-none md:shadow-custom-shadow">
-      <h6 className="text-[#000000] text-sm sm:text-base font-medium">
-        Page {currentPage} of {totalPages}
-      </h6>
-      <div className="flex items-center gap-1">
-        {[...Array(totalPages)].map((_, index) => {
-          const page = index + 1;
-          const isActive = page === currentPage;
-
-          return (
-            <PrimaryButton
-              key={page}
-              type="button"
-              text={String(page)}
-              customStyles={`${
-                isActive ? "!bg-primary !text-white" : "text-[#8992A1]"
-              } text-base font-medium w-[24px] h-[24px] !bg-white flex !text-black items-center justify-center p-2 rounded-[6px] border-none outline-none`}
-              onClick={() => {
-                handlePageClick(page);
-              }}
-            />
-          );
-        })}
-      </div>
-      <div className="flex items-center gap-4">
-        <h6 className="hidden md:block text-[#8992A1] text-base font-medium">
-          Go to page
-        </h6>
-      
-      </div>
+    <div className={`${style} flex items-center justify-center space-x-2`}>
+      <button
+        onClick={handlePrevious}
+        disabled={currentPage === 1}
+        className="p-[7px] bg-[#E8EDF4] text-white rounded-[8px] disabled:opacity-50"
+      >
+        <img
+          className="w-4"
+          src={previous}
+          alt="previous"
+        />
+      </button>
+      {renderPageNumbers()}
+      <button
+        onClick={handleNext}
+        disabled={currentPage === totalPages}
+        className="p-[7px] bg-[#E8EDF4] text-white rounded-[8px] disabled:opacity-50"
+      >
+        <img className="w-4" src={next} alt="next" width={20} height={20} />
+      </button>
     </div>
   );
 };
 
-export { Pagination };
+export default Pagination;
