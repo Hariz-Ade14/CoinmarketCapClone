@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// import React from 'react'
+>>>>>>> 2144ad25885ad8cfb10db035681ec874dc30aaf8
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import { allroutes } from './RoutesData';
 const AppRoutes = () => {
