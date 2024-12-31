@@ -78,7 +78,7 @@ type coinsProps = {
   Vol: string;
   subVol: string;
   supply: string;
-  days: React.ReactNode;
+  // days: React.ReactNode;
 };
 
 const coinData: coinsProps[] = [
@@ -96,7 +96,7 @@ const coinData: coinsProps[] = [
     Vol: "58,362,344,636",
     subVol: "845,455",
     supply: "4,677,629,503",
-    days: <MdOutlineSsidChart size={100} className="text-red text-right" />,
+    // days: <MdOutlineSsidChart size={100} className="text-red text-right" />,
   },
   {
     star: <CiStar size={20} />,
@@ -112,7 +112,7 @@ const coinData: coinsProps[] = [
     Vol: "58,362,344,636",
     subVol: "845,455",
     supply: "4,677,629,503",
-    days: <MdOutlineSsidChart size={100} className="text-green-500" />,
+    // days: <MdOutlineSsidChart size={100} className="text-green-500" />,
   },
   {
     star: <CiStar size={20} />,
@@ -128,7 +128,7 @@ const coinData: coinsProps[] = [
     Vol: "5,844,636",
     subVol: "8,455",
     supply: "4,677,503",
-    days: <MdOutlineSsidChart size={100} className="text-red" />,
+    // days: <MdOutlineSsidChart size={100} className="text-red" />,
   },
   {
     star: <CiStar size={20} />,
@@ -149,7 +149,7 @@ const coinData: coinsProps[] = [
     Vol: "5,844,636",
     subVol: "8,455",
     supply: "4,677,503",
-    days: <MdOutlineSsidChart size={90} className="text-green-500" />,
+    // days: <MdOutlineSsidChart size={90} className="text-green-500" />,
   },
   {
     star: <CiStar size={20} />,
@@ -170,7 +170,7 @@ const coinData: coinsProps[] = [
     Vol: "5,844,636",
     subVol: "8,455",
     supply: "4,677,503",
-    days: <MdOutlineSsidChart size={90} className="text-green-500" />,
+    // days: <MdOutlineSsidChart size={90} className="text-green-500" />,
   },
   {
     star: <CiStar size={20} />,
@@ -191,7 +191,7 @@ const coinData: coinsProps[] = [
     Vol: "5,844,636",
     subVol: "8,455",
     supply: "4,677,503",
-    days: <MdOutlineSsidChart size={90} className="text-green-500" />,
+    // days: <MdOutlineSsidChart size={90} className="text-green-500" />,
   },
   {
     star: <CiStar size={20} />,
@@ -212,7 +212,7 @@ const coinData: coinsProps[] = [
     Vol: "5,844,636",
     subVol: "8,455",
     supply: "4,677,503",
-    days: <MdOutlineSsidChart size={90} className="text-red" />,
+    // days: <MdOutlineSsidChart size={90} className="text-red" />,
   },
   {
     star: <CiStar size={20} />,
@@ -230,7 +230,7 @@ const coinData: coinsProps[] = [
     Vol: "5,844,636",
     subVol: "8,455",
     supply: "4,677,503",
-    days: <MdOutlineSsidChart size={90} className="text-red" />,
+    // days: <MdOutlineSsidChart size={90} className="text-red" />,
   },
   {
     star: <CiStar size={20} />,
@@ -251,7 +251,7 @@ const coinData: coinsProps[] = [
     Vol: "5,844,636",
     subVol: "8,455",
     supply: "4,677,503",
-    days: <MdOutlineSsidChart size={90} className="text-green-500" />,
+    // days: <MdOutlineSsidChart size={90} className="text-green-500" />,
   },
   {
     star: <CiStar size={20} />,
@@ -272,7 +272,7 @@ const coinData: coinsProps[] = [
     Vol: "5,844,636",
     subVol: "8,455",
     supply: "4,677,503",
-    days: <MdOutlineSsidChart size={90} className="text-green-500" />,
+    // days: <MdOutlineSsidChart size={90} className="text-green-500" />,
   },
   {
     star: <CiStar size={20} />,
@@ -290,7 +290,7 @@ const coinData: coinsProps[] = [
     Vol: "5,844,636",
     subVol: "8,455",
     supply: "4,677,503",
-    days: <MdOutlineSsidChart size={90} className="text-green-500" />,
+    // days: <MdOutlineSsidChart size={90} className="text-green-500" />,
   },
   {
     star: <CiStar size={20} />,
@@ -311,7 +311,7 @@ const coinData: coinsProps[] = [
     Vol: "5,844,636",
     subVol: "8,455",
     supply: "4,677,503",
-    days: <MdOutlineSsidChart size={90} className="text-green-500" />,
+    // days: <MdOutlineSsidChart size={90} className="text-green-500" />,
   },
 ];
 const reversedCoinData = [...coinData].reverse();
